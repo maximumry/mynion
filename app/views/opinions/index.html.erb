@@ -16,6 +16,9 @@
           <h5 class="card-title"><%= opinion.title %></h5>
           <p class="card-text"><%= opinion.text %></p>
           <p class="card-text"><%= opinion.created_at %>
+          <div class="image-tag">
+            <%= image_tag (opinion.image.variant(resize: '500x500')) if opinion.image.attached? %>
+          </div>
         </div>
       </div>
     <% end %>
