@@ -20,7 +20,7 @@
 |     Column        |   Type     |    Options                     |
 |-------------------|------------|--------------------------------|
 | text              | text       | null: false                    |
-| title             | references | null: false                    |
+| title             | string     | null: false                    |
 | user              | references | null: false, foreign_key: true |
 
 ### Association
