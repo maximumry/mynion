@@ -11,44 +11,48 @@
 
 ### Association
 
-- has_many :rooms, through: room_users
-- has_many :room_users
 - has_many :opinions
-
-## rooms テーブル
-
-|   Column         | Type       |   Options                      |
-|------------------|------------|--------------------------------|
-| name             | string     | null: false                    |
-
-### Association
-
-- has_many :users, through: room_users
-- has_many :room_users, dependent: :destroy
-- has_many :opinions, dependent: :destroy
-
-## room_users テーブル
-
-|     Column        |   Type     |    Options                     |
-|-------------------|------------|--------------------------------|
-| user              | references | null: false, foreign_key: true |
-| room              | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :room
+- has_many :comments
+- has_many :likes
 
 ## opinions テーブル
 
 |     Column        |   Type     |    Options                     |
 |-------------------|------------|--------------------------------|
 | text              | text       | null: false                    |
-| room              | references | null: false, foreign_key: true |
+| title             | references | null: false                    |
+| user              | references | null: false, foreign_key: true |
+
+### Association
+
+- has_many :comments
+- has_many :likes
+- belongs_to :user
+- has_one_attached :image
+
+## comments テーブル
+
+|     Column        |   Type     |    Options                     |
+|-------------------|------------|--------------------------------|
+| text              | text       | null: false                    |
+| opinion           | references | null: false, foreign_key: true |
 | user              | references | null: fa;se, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :room
+- belongs_to :opinion
 - has_one_attached :image
+
+## likes テーブル
+
+|     Column        |   Type     |    Options                     |
+|-------------------|------------|--------------------------------|
+| opinion           | references | null: false, foreign_key: true |
+| user              | references | null: fa;se, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :opinion
+
