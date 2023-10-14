@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'mynions#index'
-  resources :opinions, only: [:index, :new, :create]
+  devise_for :users
+  root to: 'opinions#index'
+  resources :opinions, only: :index
 end
