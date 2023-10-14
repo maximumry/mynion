@@ -16,6 +16,6 @@ class OpinionsController < ApplicationController
 
   private
     def set_opinion
-      params.require(:opinion).permit(:title, :text).merge(user_id: current_user.id)
+      params.require(:opinion).permit(:title, :text, :image).merge(user_id: current_user.id)
     end
 end
