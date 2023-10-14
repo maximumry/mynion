@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   validates :last_name, presence: true, length: {maximum: 6}
   validates :first_name, presence: true, length: {maximum: 6}
+
+  has_many :opinions
 end

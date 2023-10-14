@@ -1,6 +1,7 @@
 class OpinionsController < ApplicationController
   before_action :authenticate_user!, except: :index
   def index
+    @opinions = Opinion.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -11,4 +12,9 @@ class OpinionsController < ApplicationController
     opinion = Opinion.new(set_opinion)
     opinion.save
   end
+
+  private
+    def set_opinion
+      params.require(:opinion).permit(:title, :text).merge(user_id: current_user.id)
+    end
 end
