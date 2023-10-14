@@ -11,14 +11,6 @@
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
 
-    <div class="field">
-      <%= f.text_area :last_name, placeholder: "姓", maxlength: "40" %>
-    </div>
-
-    <div class="field">
-      <%= f.text_area :first_name, placeholder: "名", maxlength: "40" %>
-    </div>
-
     <% if devise_mapping.rememberable? %>
       <div class="remember">
         <%= f.check_box :remember_me %>
