@@ -11,6 +11,7 @@ class OpinionsController < ApplicationController
   def create
     opinion = Opinion.new(set_opinion)
     opinion.save
+    redirect_to root_path
   end
 
   private
