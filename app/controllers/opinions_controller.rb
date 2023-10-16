@@ -1,5 +1,5 @@
 class OpinionsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @opinions = Opinion.includes(:user).order("created_at DESC")
   end
@@ -16,6 +16,8 @@ class OpinionsController < ApplicationController
 
   def show
     @opinion = Opinion.find(params[:id])
+    @comment = Comment.new
+    @comments = @opinion.comments.includes(:user)
   end
 
   private
