@@ -1,5 +1,6 @@
 class Opinion < ApplicationRecord
   has_many :comments
+  has_many :likes
   belongs_to :user
   has_one_attached :image
 
@@ -12,5 +13,9 @@ class Opinion < ApplicationRecord
     else
       Opinion.includes(:user)
     end
+  end
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 end
