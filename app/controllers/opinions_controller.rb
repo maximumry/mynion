@@ -14,6 +14,10 @@ class OpinionsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @opinion = Opinion.find(params[:id])
+  end
+
   private
     def set_opinion
       params.require(:opinion).permit(:title, :text, :image).merge(user_id: current_user.id)
