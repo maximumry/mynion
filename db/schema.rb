@@ -86,5 +86,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_081504) do
   add_foreign_key "comments", "opinions"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "opinions"
+  add_foreign_key "likes", "users"
   add_foreign_key "opinions", "users"
 end

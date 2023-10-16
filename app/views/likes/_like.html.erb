@@ -1,6 +1,5 @@
 <% if user_signed_in? && opinion.liked_by?(current_user)%>
-    <%=link_to "いいね済", opinion_like_path(opinion.id),  data: { turbo_method: :delete }, class: "opinion_likes" %>
-  <% else %>
-    <%=link_to "いいねする", opinion_likes_path(opinion.id), data: { turbo_method: :post }, class: "opinion_likes" %>
-  <% end %>
-</div>
+  <%= link_to "いいね済", opinion_like_path(opinion.id), class: "opinion_likes" %>
+<% else %>
+  <%= link_to "いいねする", opinion_likes_path(opinion.id), class: "opinion_likes" %>
+<% end %>
