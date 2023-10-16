@@ -21,6 +21,21 @@
         </div>
       </div>
   </div>
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@opinion, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <p>＊＊＊ コメント投稿には新規登録/ログインが必要です ＊＊＊</p>
+    <% end %>
+    <div class="comments">
+      <% @comments.each do |comment| %>
+      <%= comment.text%>
+      <%= comment.user.first_name %>
+      <% end %>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
