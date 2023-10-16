@@ -16,6 +16,8 @@
           <div class="image-tag">
             <%= image_tag (opinion.image.variant(resize: '500x500')) if opinion.image.attached? %>
           </div>
+          <div id="like-btn<%= opinion.id %>">
+            <%= render partial: "likes/like", locals: { opinion: opinion } %>
         </div>
       </div>
     <% end %>
