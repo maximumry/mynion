@@ -19,6 +19,6 @@ class LikesController < ApplicationController
   end
 
   def set_tweet
-    @tweet = Tweet.find(params[:tweet_id])
+    @opinion = Opinion.find(params[:opinion_id])
   end
 end
