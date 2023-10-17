@@ -1,15 +1,52 @@
-<div class="header">
-  <%= link_to "Mynion", root_path, class:"header-logo" %>
-  <% if user_signed_in? %>
-    <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class:"header-left" %>
-    <%= link_to "新規投稿", new_opinion_path, class:"header-right" %>
-  <% else %>
-    <%= link_to "新規登録", new_user_registration_path, class:"header-left" %>
-    <%= link_to "ログイン", new_user_session_path, class:"header-right" %>
-  <% end %>
-  <div class="header-search">
-    <%= link_to search_opinions_path do %>
-      <%= image_tag 'ed2fe438699a3e428a7dc95d71dfee2c.png', width: 40, height: 25 %>
-    <% end %>
-  </div>
-</div>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">Mynion</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto justify-content-center">
+        <% if user_signed_in? %>
+          <li>
+            <%=  link_to new_opinion_path ,class: 'nav-link text-dark' do %>
+              <i class="fas fa-book-open"></i> New opinion
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link text-dark' do %>
+              <i class="fas fa-sign-out-alt"></i> Log out
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to search_opinions_path, class: 'nav-link text-dark' do %>
+              <%= image_tag 'ed2fe438699a3e428a7dc95d71dfee2c.png', width: 40, height: 25 %>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to root_path,class: 'nav-link text-light' do %>
+              <i class="fas fa-home"></i> Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to home_about_path,class: 'nav-link text-light' do %>
+              <i class="fas fa-link"></i> About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
+              <i class="fas fa-user-plus"></i> Sign up
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path ,class: 'nav-link text-light' do %>
+              <i class="fas fa-sign-in-alt"></i> Log in
+            <% end %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
