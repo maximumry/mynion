@@ -1,23 +1,26 @@
 <%= render partial: "header" %>  
-  <title>My Stylish Page</title>
-  <link rel="stylesheet" href="html.css">
-</head>
-<body>
 <div class="container">
-
-  <div class="opinions">
+  <div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @opinions.each do |opinion| %>
-      <div class="card my-3">
-        <div class="card-body">
-          <h5 class="card-title"><%= opinion.title %></h5>
-          <p class="card-text"><%= opinion.text %></p>
-          <p class="card-text"><%= l opinion.created_at %></p>
-          <%= link_to "意見の詳細", opinion_path(opinion.id) %>
-          <div class="image-tag">
-            <%= image_tag (opinion.image.variant(resize: '500x500')) if opinion.image.attached? %>
+      <div class="col">
+        <div class="card h-100">
+          <%= image_tag (opinion.image) if opinion.image.attached? %>
+          <div class="card-body">
+            <h3 class="card-title text-center"><%= opinion.title %></h5>
+            <p class="card-text text-center"><%= opinion.text %></p>
+            <div class="btn-group">
+              <button class="btn btn-secondary btn-sm dropdown-toggle btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Info
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"><p class="card-text"><div id="like-btn<%= opinion.id %>"><%= render partial: "likes/like", locals: { opinion: opinion } %></div></a></li>
+                <li><a class="dropdown-item" href="#"><p class="card-text"><%= link_to "意見の詳細", opinion_path(opinion.id) %></p></a></li>
+              </ul>
+            </div>
           </div>
-          <div id="like-btn<%= opinion.id %>">
-            <%= render partial: "likes/like", locals: { opinion: opinion } %>
+          <div class="card-footer">
+            <small class="text-body-secondary"><%= l opinion.created_at %></small>
           </div>
         </div>
       </div>
