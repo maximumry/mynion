@@ -45,3 +45,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
+<ul class="dropdown-menu">
+  <li><a class="dropdown-item" href="#"><p class="card-text"><div id="like-btn<%= opinion.id %>"><%= render partial: "likes/like", locals: { opinion: opinion } %></div></a></li>
+  <li><a class="dropdown-item" href="#"><p class="card-text"><%= link_to "意見の詳細", opinion_path(opinion.id) %></p></a></li>
+</ul>

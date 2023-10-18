@@ -1,6 +1,5 @@
 <%= render partial: "header" %>  
 <div class="container">
-  <div class="container">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @opinions.each do |opinion| %>
       <div class="col">
@@ -11,11 +10,15 @@
             <p class="card-text text-center"><%= opinion.text %></p>
             <div class="btn-group">
               <button class="btn btn-secondary btn-sm dropdown-toggle btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Info
+                詳細
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"><p class="card-text"><div id="like-btn<%= opinion.id %>"><%= render partial: "likes/like", locals: { opinion: opinion } %></div></a></li>
-                <li><a class="dropdown-item" href="#"><p class="card-text"><%= link_to "意見の詳細", opinion_path(opinion.id) %></p></a></li>
+                <div class="text-center">
+                  <li><a class="dropdown-item" href="#"><p class="card-text"><div id="like-btn<%= opinion.id %>"><%= render partial: "likes/like", locals: { opinion: opinion } %></div></a></li>
+                </div>
+                <div class="text-center">
+                  <li><a class="dropdown-item" href="#"><p class="card-text"><%= link_to "意見の詳細", opinion_path(opinion.id) %></p></a></li>
+                </div>
               </ul>
             </div>
           </div>
