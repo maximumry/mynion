@@ -49,3 +49,51 @@
   <li><a class="dropdown-item" href="#"><p class="card-text"><div id="like-btn<%= opinion.id %>"><%= render partial: "likes/like", locals: { opinion: opinion } %></div></a></li>
   <li><a class="dropdown-item" href="#"><p class="card-text"><%= link_to "意見の詳細", opinion_path(opinion.id) %></p></a></li>
 </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <%= link_to "Mynion", root_path, class:"header-logo" %>
+  <% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class:"header-left" %>
+    <%= link_to "新規投稿", new_opinion_path, class:"header-right" %>
+  <% else %>
+    <%= link_to "新規登録", new_user_registration_path, class:"header-left" %>
+    <%= link_to "ログイン", new_user_session_path, class:"header-right" %>
+  <% end %>
+</div>
+  <title>My Stylish Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+
+  <div class="opinions">
+    <% @opinions.each do |opinion| %>
+      <div class="card my-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= opinion.title %></h5>
+          <p class="card-text"><%= opinion.text %></p>
+          <p class="card-text"><%= opinion.created_at %>
+          <%= link_to "意見の詳細", opinion_path(opinion.id) %>
+          <div class="image-tag">
+            <%= image_tag (opinion.image.variant(resize: '500x500')) if opinion.image.attached? %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
