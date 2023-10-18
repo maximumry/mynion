@@ -10,12 +10,12 @@
         <% if user_signed_in? %>
           <li>
             <%=  link_to new_opinion_path ,class: 'nav-link text-dark' do %>
-              <i class="fas fa-book-open"></i> New opinion
+              <i class="fas fa-book-open"></i> 新規投稿
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link text-dark' do %>
-              <i class="fas fa-sign-out-alt"></i> Log out
+              <i class="fas fa-sign-out-alt"></i> ログアウト
             <% end %>
           </li>
           <li>
@@ -26,12 +26,12 @@
         <% else %>
           <li>
             <%= link_to new_user_registration_path,class: 'nav-link text-dark' do %>
-              <i class="fas fa-user-plus"></i> Sign up
+              <i class="fas fa-user-plus"></i> 新規投稿
             <% end %>
           </li>
           <li>
             <%= link_to new_user_session_path ,class: 'nav-link text-dark' do %>
-              <i class="fas fa-sign-in-alt"></i> Log in
+              <i class="fas fa-sign-in-alt"></i> ログイン
             <% end %>
           </li>
         <% end %>
