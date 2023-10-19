@@ -1,40 +1,43 @@
-<div class="header">
-  <%= link_to "Mynion", root_path, class:"header-logo" %>
-  <% if user_signed_in? %>
-    <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class:"header-left" %>
-    <%= link_to "新規投稿", new_opinion_path, class:"header-right" %>
-  <% else %>
-    <%= link_to "新規登録", new_user_registration_path, class:"header-left" %>
-    <%= link_to "ログイン", new_user_session_path, class:"header-right" %>
-  <% end %>
+<%= render partial: "header2" %>
+<div class="d-flex justify-content-center">
+  <div class="mb-3 w-25">
+    <%= form_with(url: search_opinions_path, local: true, method: :get, class: "search-form") do |form| %>
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "form-control search-input" %>
+        <button type="submit" class="btn btn-primary">検索</button>
+      </div>
+    <% end %> 
+  </div>
 </div>
-  <title>My Stylish Page</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
-<body>
 <div class="container">
-  <%= form_with(url: search_opinions_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
-
-  <div class="opinions">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @opinions.each do |opinion| %>
-      <div class="card my-3">
-        <div class="card-body">
-          <h5 class="card-title"><%= opinion.title %></h5>
-          <p class="card-text"><%= opinion.text %></p>
-          <p class="card-text"><%= opinion.created_at %>
-          <%= link_to "意見の詳細", opinion_path(opinion.id) %>
-          <div class="image-tag">
-            <%= image_tag (opinion.image.variant(resize: '500x500')) if opinion.image.attached? %>
+      <div class="col">
+        <div class="card h-100">
+          <%= image_tag (opinion.image) if opinion.image.attached? %>
+          <div class="card-body">
+            <h3 class="card-title text-center"><%= opinion.title %></h5>
+            <p class="card-text text-center"><%= opinion.text %></p>
+            <div class="btn-group">
+              <button class="btn btn-secondary btn-sm dropdown-toggle btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                詳細
+              </button>
+              <ul class="dropdown-menu">
+                <div class="text-center">
+                  <li><a class="dropdown-item" href="#"><p class="card-text"><div id="like-btn<%= opinion.id %>"><%= render partial: "likes/like", locals: { opinion: opinion } %></div></a></li>
+                </div>
+                <div class="text-center">
+                  <li><a class="dropdown-item" href="#"><p class="card-text"><%= link_to "意見の詳細", opinion_path(opinion.id) %></p></a></li>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary"><%= l opinion.created_at %></small>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
