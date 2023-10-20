@@ -9,9 +9,12 @@ class OpinionsController < ApplicationController
   end
 
   def create
-    opinion = Opinion.new(set_opinion)
-    opinion.save
-    redirect_to root_path
+    @opinion = Opinion.new(set_opinion)
+    if @opinion.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show

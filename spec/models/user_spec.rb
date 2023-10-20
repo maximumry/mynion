@@ -16,20 +16,20 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank")
       end
-      it '名字が7文字以上だと登録できない' do
-        @user.last_name = "井上佐藤田中望"
+      it '名字が漢字、カタカナ、ひらがな以外だと登録できない' do
+        @user.last_name = "last"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name is too long (maximum is 6 characters)")
+        expect(@user.errors.full_messages).to include("Last name is invalid. Input full-width characters")
       end
-      it '名字が空で登録できない' do
+      it '名前が空で登録できない' do
         @user.first_name = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
       end
-      it '名前が7文字以上だと登録できない' do
-        @user.first_name = "井上佐藤田中望"
+      it '名前が漢字、カタカナ、ひらがな以外だと登録できない' do
+        @user.first_name = "first"
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is too long (maximum is 6 characters)")
+        expect(@user.errors.full_messages).to include("First name is invalid. Input full-width characters")
       end
       it 'emailが空だと登録できない' do
         @user.email = ""
@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
         @user.save
         @user.password_confirmation = "1234567"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("Password confirmation Password confirmation doesn't match Password")
       end
     end
   end

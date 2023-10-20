@@ -4,8 +4,8 @@ class Opinion < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :title, presence: true
-  validates :text, presence: true
+  validates :title, presence: {message: "を入力してください"}
+  validates :text, presence: {message: "を入力してください"}
 
   def self.search(search)
     if search != ""
