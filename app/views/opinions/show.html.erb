@@ -11,6 +11,7 @@
     </div>
   </div>
   <div class="container w-50 text-center">
+    <h4>＜コメント一覧＞</h4>
     <% if user_signed_in? %>
       <%= form_with(model: [@opinion, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "form-control" %>
