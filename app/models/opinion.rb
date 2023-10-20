@@ -4,8 +4,12 @@ class Opinion < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :title, presence: {message: "を入力してください"}
-  validates :text, presence: {message: "を入力してください"}
+  validates :title, presence: {message: "can't be blank"}
+  validates :text, presence: {message: "can't be blank"}, unless: :was_attached?
+
+  def was_attached?
+    self.image.attached?
+  end
 
   def self.search(search)
     if search != ""
