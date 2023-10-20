@@ -1,4 +1,5 @@
 FactoryBot.define do
+  require 'faker/japanese'
   factory :user do
     last_name             {Faker::Japanese::Name.last_name}
     first_name            {Faker::Japanese::Name.first_name}
