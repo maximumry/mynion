@@ -6,6 +6,7 @@ class Opinion < ApplicationRecord
 
   validates :title, presence: {message: "can't be blank"}
   validates :text, presence: {message: "can't be blank"}, unless: :was_attached?
+  validates :user, presence: {message: "can't be blank"}
 
   def was_attached?
     self.image.attached?
