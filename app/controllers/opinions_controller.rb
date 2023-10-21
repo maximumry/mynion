@@ -3,7 +3,6 @@ class OpinionsController < ApplicationController
   def index
     @opinions = Opinion.includes(:user).order("created_at DESC")
   end
-
   def new
     @opinion = Opinion.new
   end
