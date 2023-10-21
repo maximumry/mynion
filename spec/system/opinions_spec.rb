@@ -8,10 +8,7 @@ RSpec.describe 'ツイート投稿', type: :system do
   end
   context '意見投稿ができるとき'do
     it 'ログインしたユーザーは新規投稿できる' do
-      visit new_user_session_path
-      fill_in 'Email', with: @user.email
-      fill_in 'Password', with: @user.password
-      find('input[name="commit"]').click
+      sign_in(@user)
       expect(page).to have_current_path(root_path)
       expect(page).to have_content("新規投稿")
       visit new_opinion_path
@@ -38,10 +35,7 @@ RSpec.describe '意見詳細', type: :system do
     @user = FactoryBot.create(:user)
   end
   it 'ログインしたユーザーは詳細ページに遷移してコメント投稿欄が表示される' do
-    visit new_user_session_path
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
-    find('input[name="commit"]').click
+    sign_in(@opinion.user)
     expect(page).to have_current_path(root_path)
     expect(page).to have_content("詳細")
     find('button[type="button"]').click
