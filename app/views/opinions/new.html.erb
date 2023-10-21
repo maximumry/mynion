@@ -3,7 +3,7 @@
   <div class="card" style="min-width: 40vw;">
     <div class="card-body">
       <h2 class="text-center">新規投稿</h2>
-        <%= form_with(model: @opinion, local: true) do |f| %>
+        <%= form_with(model: @opinion, data: { turbo: false }, local: true) do |f| %>
         <%= render "shared/error_messages", model: f.object %>
         <div class="mb-3 text-center">
           <%= f.label :image, class: "btn btn-secondary btn-sm" do %>
