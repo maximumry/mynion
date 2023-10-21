@@ -8,12 +8,12 @@
         <%= render "shared/error_messages", model: f.object %>
 
         <div class="mb-3">
-          <%= f.label "メールアドレス", class: "form-label" %>
+          <%= f.label :email, class: "form-label" %>
           <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="mb-3">
-          <%= f.label "パスワード", class: "form-label" %>
+          <%= f.label :password, class: "form-label" %>
           <% if @minimum_password_length %>
             <small>(<%= @minimum_password_length %>文字以上)</small>
           <% end %>
@@ -21,17 +21,17 @@
         </div>
 
         <div class="mb-3">
-          <%= f.label "パスワード確認", class: "form-label" %>
+          <%= f.label :password_confirmation, class: "form-label" %>
           <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
         </div>
 
         <div class="mb-3">
-          <%= f.label "名字", class: "form-label" %>
+          <%= f.label :last_name, class: "form-label" %>
           <%= f.text_area :last_name, class: "form-control", maxlength: "40" %>
         </div>
 
         <div class="mb-3">
-          <%= f.label "名前", class: "form-label" %>
+          <%= f.label :first_name, class: "form-label" %>
           <%= f.text_area :first_name, class: "form-control", maxlength: "40" %>
         </div>
 
