@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   before_action :set_tweet
 
   def create
-    like = current_user.likes.build(opinion_id: params[:opinion_id])
+    like = current_user.likes.build(opinion_id: @opinion.id)
     like.save
     respond_to do |format|
       format.js
@@ -11,7 +11,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like = Like.find_by(opinion_id: params[:opinion_id], user_id: current_user.id)
+    like = Like.find_by(opinion_id: @opinion.id, user_id: current_user.id)
     like.destroy
     respond_to do |format|
       format.js

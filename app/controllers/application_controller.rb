@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth if Rails.env.prduction?
+  before_action :basic_auth # if Rails.env.prduction? テスト実施の時はコメントアウト削除
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private

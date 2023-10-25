@@ -14,7 +14,11 @@
               </button>
               <ul class="dropdown-menu">
                 <div class="text-center">
-                  <li><a class="dropdown-item" href="#"><p class="card-text"><div id="like-btn<%= opinion.id %>"><%= render partial: "likes/like", locals: { opinion: opinion } %></div></a></li>
+                  <li>
+                    <div id="like-btn<%= opinion.id %>">
+                      <%= render partial: "likes/like", locals: { opinion: opinion } %>
+                    </div>
+                  </li>
                 </div>
                 <div class="text-center">
                   <li><a class="dropdown-item" href="#"><p class="card-text"><%= link_to "意見の詳細", opinion_path(opinion.id) %></p></a></li>
@@ -22,9 +26,9 @@
               </ul>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer d-flex">
             <small class="text-body-secondary"><%= l opinion.created_at %></small>
-            いいね数:<%= opinion.likes.distinct.count(:user_id) %>
+            <h5 style="margin-left: 15px;">いいね数:</h5><%= opinion.likes.count %>
           </div>
         </div>
       </div>
