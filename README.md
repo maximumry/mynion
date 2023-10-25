@@ -50,7 +50,7 @@ https://mynion.onrender.com
 
 ## 画面遷移図
 
-[![Image from Gyazo](https://i.gyazo.com/c26eeb2b3a5c593ecfc9e020dc06adef.png)](https://gyazo.com/c26eeb2b3a5c593ecfc9e020dc06adef)
+[![Image from Gyazo](https://i.gyazo.com/113c835aefc50ba76a5f68c687f6c349.png)](https://gyazo.com/113c835aefc50ba76a5f68c687f6c349)
 
 ## 開発環境
 
