@@ -13,17 +13,24 @@
                 詳細
               </button>
               <ul class="dropdown-menu">
-                <div class="text-center">
+                <div class="text-center m-2">
                   <li>
                     <div id="like-btn<%= opinion.id %>">
-                      <%= render partial: "likes/like", locals: { opinion: opinion } %>
+                      <!-- Style the Like button using Bootstrap -->
+                      <button class="btn btn-secondary">
+                        <%= render partial: "likes/like", locals: { opinion: opinion } %>
+                      </button>
                     </div>
                   </li>
                 </div>
-                <div class="text-center">
-                  <li><a class="dropdown-item" href="#"><p class="card-text"><%= link_to "意見の詳細", opinion_path(opinion.id) %></p></a></li>
+                <div class="text-center m-3">
+                  <li>
+                    <!-- Style the opinion detail link using Bootstrap -->
+                    <%= link_to "意見の詳細", opinion_path(opinion.id), class: "btn btn-secondary" %>
+                  </li>
                 </div>
               </ul>
+
             </div>
           </div>
           <div class="card-footer d-flex">
