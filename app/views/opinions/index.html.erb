@@ -16,7 +16,6 @@
                 <div class="text-center m-2">
                   <li>
                     <div id="like-btn<%= opinion.id %>">
-                      <!-- Style the Like button using Bootstrap -->
                       <button class="btn btn-secondary">
                         <%= render partial: "likes/like", locals: { opinion: opinion } %>
                       </button>
@@ -25,7 +24,6 @@
                 </div>
                 <div class="text-center m-3">
                   <li>
-                    <!-- Style the opinion detail link using Bootstrap -->
                     <%= link_to "意見の詳細", opinion_path(opinion.id), class: "btn btn-secondary" %>
                   </li>
                 </div>

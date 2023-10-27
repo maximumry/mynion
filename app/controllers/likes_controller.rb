@@ -5,17 +5,13 @@ class LikesController < ApplicationController
   def create
     like = current_user.likes.build(opinion_id: @opinion.id)
     like.save
-    respond_to do |format|
-      format.js
-    end
+    redirect_to root_path
   end
 
   def destroy
     like = Like.find_by(opinion_id: @opinion.id, user_id: current_user.id)
     like.destroy
-    respond_to do |format|
-      format.js
-    end
+    redirect_to root_path
   end
 
   def set_tweet
