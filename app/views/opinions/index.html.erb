@@ -17,7 +17,14 @@
                   <li>
                     <div id="like-btn<%= opinion.id %>">
                       <button class="btn btn-secondary">
-                        <%= render partial: "likes/like", locals: { opinion: opinion } %>
+                        <%= turbo_frame_tag dom_id(opinion, :like) do %>
+                          <% if user_signed_in? && opinion.liked_by?(current_user)%>
+                            <%=link_to "いいね済", opinion_likes_path(opinion.id), data: { turbo_method: :delete }, class: "opinion_likes", style: "color: white; text-decoration: none;" %>
+                          <% else %>
+                            <%=link_to "いいね", opinion_likes_path(opinion.id), data: { turbo_method: :post }, class: "opinion_likes", style: "color: white; text-decoration: none;" %>
+                          <% end %>
+                        <% end %>
+                        <%# <%= render partial: "likes/like", locals: { opinion: opinion } %>
                       </button>
                     </div>
                   </li>

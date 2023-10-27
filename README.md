@@ -51,12 +51,12 @@ https://mynion.onrender.com
 
 ## 開発環境
 
-フロントエンド<br>
-バックエンド<br>
-BootStrap<br>
-Rubyonrails<br>
-Javascript<br>
-テスト<br>
+###### フロントエンド<br>
+- BootStrap
+- HTML
+###### バックエンド<br>
+- Ruby on rails
+- Gem
 
 ## ローカルでの動作方法
 
