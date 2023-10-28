@@ -12,24 +12,31 @@ https://mynion.onrender.com
 - Basic認証パスワード : 2222
 - アカウントメールアドレス : aaa@aaa
 - アカウントパスワード : aaa111
+- アカウントメールアドレス : bbb@bbb
+- アカウントパスワード : bbb222
 
 ## 利用方法
 
 #### 意見投稿
 
 1. トップページのヘッダーから新規ユーザー登録をする
+[![Image from Gyazo](https://i.gyazo.com/57c9639ab2a5129221742c7647638043.gif)](https://gyazo.com/57c9639ab2a5129221742c7647638043)
+
 2. ヘッダーの新規投稿から(タイトル、テキスト、画像(任意))を入力して投稿する
+[![Image from Gyazo](https://i.gyazo.com/0c0ea96cad6c0ded5a1bab7798d32eae.gif)](https://gyazo.com/0c0ea96cad6c0ded5a1bab7798d32eae)
 
 #### 意見に対してコメントする
 
 1. 一覧ページに表示されている投稿の詳細ボタンをタップして意見の詳細をクリック
 2. 投稿内容の左側に表示されているフォームからコメントを投稿
+[![Image from Gyazo](https://i.gyazo.com/803d92c06e819501a20a1b1ec265289f.gif)](https://gyazo.com/803d92c06e819501a20a1b1ec265289f)
 
 #### 意見に対していいねする
 
 1. 一覧ページに表示されている詳細ボタンをタップしていいねボタンをクリック
 
 2. いいねをクリックすると投稿内容の下に表示されているいいねの数字が増える
+[![Image from Gyazo](https://i.gyazo.com/07744b045d54bc4106253a312211a884.gif)](https://gyazo.com/07744b045d54bc4106253a312211a884)
 
 ## アプリケーションを作成した背景
 
@@ -59,6 +66,14 @@ https://mynion.onrender.com
 - Gem
 
 ## ローカルでの動作方法
+
+% git clone https://github.com/maximumry/mynion.git <br>
+% cd mynion<br>
+% bundle install<br>
+% yarn install<br>
+% rails db:create<br>
+% rails db:migrate<br>
+% rails s
 
 ## 工夫したポイント
 
