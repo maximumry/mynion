@@ -2,7 +2,6 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    binding.pry
     like = current_user.likes.build(opinion_id: params[:opinion_id])
     like.save
     redirect_to root_path
