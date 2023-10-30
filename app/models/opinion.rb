@@ -14,7 +14,7 @@ class Opinion < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Opinion.where('text LIKE(?)', "%#{search}%").order("created_at DESC")
+      Opinion.where('text LIKE(?) OR title LIKE(?)', "%#{search}%", "%#{search}%").order("created_at DESC")
     else
       Opinion.includes(:user).order("created_at DESC")
     end
