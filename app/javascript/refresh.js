@@ -1,5 +1,7 @@
 document.addEventListener('turbo:load', () => {
-  setTimeout(() => {
-    Turbo.visit(window.location.toString());
-  }, 60000);
+  if (window.location.pathname === '/') {
+    setTimeout(() => {
+      Turbo.visit(window.location.toString());
+    }, 60000);
+  }
 });
