@@ -46,6 +46,7 @@ https://mynion.onrender.com
 ## 実装予定の機能
 
 - 通知機能
+- Googleアカウントでログイン機能
 
 ## データベース設計
 
