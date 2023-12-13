@@ -28,4 +28,5 @@ class User < ApplicationRecord
   has_many :opinions
   has_many :comments
   has_many :likes
+  has_many :sns_credentials
 end
