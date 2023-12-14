@@ -20,10 +20,10 @@ class User < ApplicationRecord
       errors.add(:password_confirmation, "Password confirmation doesn't match Password")
     end
   end
-                        
 
-  
-
+  def self.from_omniauth(auth)
+    binding.pry
+  end
 
   has_many :opinions
   has_many :comments
