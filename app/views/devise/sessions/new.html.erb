@@ -34,5 +34,5 @@
       <%= f.submit "ログイン", class:"btn btn-primary" %>
     </div>
   <% end %>
-
+  <%= button_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, data: { turbo: false } %>
   <%= render "devise/shared/links" %>

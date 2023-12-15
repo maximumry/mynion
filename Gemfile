@@ -86,3 +86,6 @@ gem 'image_processing', '~> 1.2'
 gem 'bootstrap', '~> 5.2.3'
 gem 'jquery-rails'
 gem 'pry-rails'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth', '~>2.1.1'
