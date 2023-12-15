@@ -23,6 +23,12 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     binding.pry
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    user = User.where(email: auth.info.email).first_or_initialize(
+      last_name: auth.info.last_name,
+      first_name: auth.info.first_name,
+      email: auth.info.email
+    )
   end
 
   has_many :opinions
