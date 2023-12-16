@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-  end
-  collection do
-    get 'how_to'
+    collection do
+      get 'how_to'
+    end
   end
 end

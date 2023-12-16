@@ -1,0 +1,35 @@
+<%= render partial: "header" %>
+<div class="d-flex justify-content-center align-items-center" style="margin-bottom: 30px;">
+  <div>
+    <h1>アプリの使い方</h1>
+  </div>
+</div>
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="card" style="width: 80vw; height: 600px">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-ride="carousel" data-interval="5000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag "how_to_image11.jpg", height: 440, width: 1143, class: "d-block w-100" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "how_to_image2.jpg", height: 440, width: 1143, class: "d-block w-100" %>
+        </div>
+      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="card-body">
+        <p class="card-text">新しく投稿する方法</p>
+        <p class="card-text">①　画像の一番上にある新規投稿の文字をクリックします<br>
+                             ②　画面中央にある入力欄に文字を入力します（灰色の画像を選択ボタンをクリックすると画像を任意で投稿できます）<br>
+                             ③　文字を入力し終わって青い送信ボタンを押すと投稿完了です</p>
+      </div>
+    </div>
+</div>
