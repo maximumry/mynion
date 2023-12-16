@@ -43,7 +43,7 @@
           <%= f.submit "新規登録", class: "btn btn-primary" %>
         </div>
       <% end %>
-
+      <%= button_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, data: { turbo: false } %>
       <%= render "devise/shared/links" %>
     </div>
   </div>
