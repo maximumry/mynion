@@ -11,4 +11,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  collection do
+    get 'how_to'
+  end
 end

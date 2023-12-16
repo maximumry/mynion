@@ -26,6 +26,9 @@ class OpinionsController < ApplicationController
     @opinions = Opinion.search(params[:keyword])
   end
 
+  def how_to
+  end
+
   private
     def set_opinion
       params.require(:opinion).permit(:title, :text, :image).merge(user_id: current_user.id)
