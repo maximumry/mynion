@@ -18,11 +18,13 @@
               <i class="fas fa-sign-out-alt"></i> ログアウト
             <% end %>
           </li>
+          <% unless current_page?(search_opinions_path) %>
           <li>
             <%=  link_to search_opinions_path, class: 'nav-link text-dark' do %>
               <%= image_tag 'ed2fe438699a3e428a7dc95d71dfee2c.png', width: 40, height: 25 %>
             <% end %>
           </li>
+          <% end %>
         <% else %>
           <li>
             <%= link_to new_user_registration_path,class: 'nav-link text-dark' do %>
@@ -35,11 +37,13 @@
             <% end %>
           </li>
         <% end %>
+        <% unless current_page?(how_to_opinions_path) %>
         <li>
           <%= link_to how_to_opinions_path, class: 'nav-link text-dark' do %>
             <i class="fas fa-sign-out-alt"></i> アプリの使い方
           <% end %>
         </li>
+        <% end %>
         </ul>
       </div>
     </div>

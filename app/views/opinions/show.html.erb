@@ -15,7 +15,7 @@
     <% if user_signed_in? %>
       <%= form_with(model: [@opinion, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "form-control" %>
-        <%= form.submit "SEND", class: "btn btn-primary mt-4 mb-4" %>
+        <%= form.submit "送信", class: "btn btn-primary mt-4 mb-4" %>
       <% end %>
     <% else %>
       <p>＊＊＊ コメント投稿には新規登録/ログインが必要です ＊＊＊</p>
