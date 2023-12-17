@@ -56,11 +56,11 @@ https://mynion.onrender.com
 
 ## データベース設計
 
-[![Image from Gyazo](https://i.gyazo.com/943fe1e916f89b58ba32eaf61824b8d0.png)](https://gyazo.com/943fe1e916f89b58ba32eaf61824b8d0)
+[![Image from Gyazo](https://i.gyazo.com/16d912d041d30d03d987ba2697ffed6c.png)](https://gyazo.com/16d912d041d30d03d987ba2697ffed6c)
 
 ## 画面遷移図
 
-[![Image from Gyazo](https://i.gyazo.com/113c835aefc50ba76a5f68c687f6c349.png)](https://gyazo.com/113c835aefc50ba76a5f68c687f6c349)
+[![Image from Gyazo](https://i.gyazo.com/94690d10eff70265d22b27387abeaa1f.png)](https://gyazo.com/94690d10eff70265d22b27387abeaa1f)
 
 ## 開発環境
 
