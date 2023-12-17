@@ -114,6 +114,7 @@ https://mynion.onrender.com
 - has_many :opinions
 - has_many :comments
 - has_many :likes
+- has_many :sns_credentials
 
 ## opinions テーブル
 
@@ -156,3 +157,14 @@ https://mynion.onrender.com
 - belongs_to :user
 - belongs_to :opinion
 
+## sns_credentials テーブル
+
+|     Column        |   Type     |    Options        |
+|-------------------|------------|-------------------|
+| provider          | string     |                   |
+| uid               | string     |                   |
+| user              | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
